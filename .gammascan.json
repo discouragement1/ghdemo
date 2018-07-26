@@ -1,21 +1,43 @@
 {
 	"gammaAccess": {
-		"url": "http://192.168.2.38:3000",
-		"userName": "nilesh.virkar@acellere.com",
-		"password": "gamma123"
+		"url": "http://192.168.3.47:3000",
+		"userName": "admin@mygamma.io",
+		"password": "admin"
 	},
 	"repositories": [{
 			"repository": {
-				"uid": "480e61811ab6867642b6c52af4c70101",
-				"projectName": "project_name",
+				"uid": "3de11b2b227b542ca7a55c0c208b9bad",
+				"projectName": "JenkinsPlugin_GithubDemo",
 				"sources": {
-					"baseDir": "/var/lib/jenkins/workspace/githubdemojava"
+					"baseDir": "$WORKSPACE"
 				}
 			},
-			"dataDir": "$GAMMA_DATA",
+			"dataDir": "/home/acellere/gitRepos/Java/GithubDemo_Nilesh-dataDir",
 			"modules": {
 				"codeissues": [{
 						"name": "pmd"
+					}
+				],
+				"coverage": [{
+						"name": "clover",
+						"config": {
+							"options": [{
+									"name": "reportDir",
+									"value": "$WORKSPACE/target/site/clover"
+								}
+							]
+						}
+					}
+				],
+				"unittest": [{
+						"name": "junit",
+						"config": {
+							"options": [{
+									"name": "reportDir",
+									"value": "$WORKSPACE/subproject/target/surefire-reports, $WORKSPACE/subproject2/target/surefire-reports"
+								}
+							]
+						}
 					}
 				]
 			}
